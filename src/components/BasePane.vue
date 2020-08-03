@@ -1,6 +1,6 @@
 <template>
   <div class="base-pane">
-    <div class="background" @click="close"></div>
+    <div class="background" @click="close" />
     <div class="pane">
       <div class="header">
         <div v-if="title" class="title">
