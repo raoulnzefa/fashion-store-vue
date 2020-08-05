@@ -40,7 +40,7 @@ export default {
         cartItem => ({
           ...cartItem,
           // Add store item data
-          storeItem: itemsMap[cartItem.id],
+          storeItem: itemsMap[cartItem.id]
         })
       )
     },

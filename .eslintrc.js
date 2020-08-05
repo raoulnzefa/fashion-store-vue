@@ -24,6 +24,6 @@ module.exports = {
   rules: {
     // https://github.com/babel/babel-eslint/issues/517
     'no-use-before-define': 'off',
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': ['error', 'newer'],
   },
 };
