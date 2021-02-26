@@ -1,5 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
+const FriendlyErrors = require('friendly-errors-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -36,7 +37,12 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /\.(jsx?|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+      },
     ]
   },
   resolve: {
@@ -60,6 +66,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
+    new FriendlyErrors(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
